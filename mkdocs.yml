@@ -1,0 +1,19 @@
+site_name: Operating Systems
+repo_url: https://github.com/os2xx/os/
+repo_name: os2xx/os
+nav:
+  - Home: index.md
+  - OS-Weekly:
+      - assignments/index.md
+      - Assignments:
+        - Week 00: assignments/W00-01.md
+theme:
+  name: material
+  logo: assets/images/cbk.jpg
+  favicon: assets/images/cbk.jpg
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - scheme: slate
+      primary: green
+      accent: light green
