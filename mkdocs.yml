@@ -12,6 +12,8 @@ theme:
   name: material
   logo: assets/images/cbk.jpg
   favicon: assets/images/cbk.jpg
+  features:
+    - navigation.tabs
   icon:
     repo: fontawesome/brands/github
   palette:
