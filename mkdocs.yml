@@ -6,14 +6,13 @@ nav:
   - Home: index.md
   - OS-Weekly:
       - assignments/index.md
-      - Assignments:
-        - Week 00: assignments/W00-01.md
 theme:
   name: material
   logo: assets/images/cbk.jpg
   favicon: assets/images/cbk.jpg
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
   icon:
     repo: fontawesome/brands/github
   palette:
