@@ -1,6 +1,6 @@
 site_name: Operating Systems
 site_url: https://os.vlsm.ui.com/
-repo_url: https://github.com/os2xx/os/
+repo_url: https://github.com/dimashn04/mkdocs-os-cbk
 repo_name: os2xx/os
 nav:
   - Home: index.md
