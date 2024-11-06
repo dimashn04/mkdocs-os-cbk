@@ -62,14 +62,32 @@ mkdocs serve [OPTIONS]
 
 To automate the deployment of your MkDocs project using GitHub Actions, you'll need to set up a specific directory structure and configuration files within your repository. Here's a step-by-step guide to get you started:
 
-1. **Create the `.github` Directory:**
+1. **Create your GitHub repository:**  
+   If you haven't already, create a new repository on GitHub to host your MkDocs project.
+
+2. **Create the `.github` Directory:**
    - Navigate to the root of your MkDocs project and create a new folder named `.github`. This directory will house the GitHub Actions workflows and other GitHub-specific configurations.
 
-2. **Add a `workflows` Directory:**
+3. **Add a `workflows` Directory:**
    - Inside the `.github` folder, create another folder named `workflows`. This is where all workflow configuration files will be stored.
 
-3. **Create the CI Workflow File:**
+4. **Create the CI Workflow File:**
     * Within the `workflows` folder, create a file named `ci.yml`. This YAML file will define the Continuous Integration (CI) workflow that GitHub Actions will execute.
+
+5. **Configure the CI Workflow:**
+    * Open the `ci.yml` file and add the necessary steps to install MkDocs, build the site, and deploy it to GitHub Pages. See Example CI Workflow Configuration below.
+
+6. **Commit and Push Changes:**
+    * Once you've set up the CI workflow, commit the changes to your repository and push them to GitHub. This will trigger the CI workflow and deploy your MkDocs site.
+
+7. **Monitor the Workflow:**
+    * After pushing the changes, navigate to the "Actions" tab on your GitHub repository to monitor the progress of the CI workflow. You should see the workflow running and deploying your MkDocs site.
+
+8. **Access Your Deployed Site:**
+    * Once the workflow has completed successfully, you can access your deployed MkDocs site by visiting the GitHub Pages URL associated with your repository. To do this, open the "Settings" tab of your repository, scroll down to the "GitHub Pages" section, and find the URL under "Your site is published at."
+
+9. **Add Deployed Site Link to Repository Details:**
+    * To make it easier for visitors to access your deployed MkDocs site, consider adding the GitHub Pages URL to the repository details or the README file. To add the URL to the Repository Details, search for the "About" section on the right side of your repository page and click the gear icon to edit the details. You can then add the GitHub Pages URL under "Website."
 
 ### Example CI Workflow Configuration
 
