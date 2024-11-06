@@ -1,13 +1,21 @@
 ---
 layout: "layout"
-title:  "OSP How to Add Weekly Assignments and Any Other Materials in General"
+title:  "Documentation"
 hide:
   - navigation
   - toc
 ---
-Here's an improved version for clarity and conciseness:
 
----
+## How to Prepare the Source Code
+
+1. **Download the Source Code:**  
+   Click the link below to download the latest version of the source code as a ZIP file:  
+   [Download Source Code](https://github.com/cbk2000/mkdocs-os-cbk/archive/refs/heads/master.zip)
+
+2. **Extract the ZIP File:**  
+   Once downloaded, unzip the `mkdocs-os-cbk-master.zip` file to access the source code files.
+
+3. **Follow the steps below**
 
 ## How to Install Requirements for MkDocs
 
