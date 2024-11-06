@@ -135,6 +135,50 @@ jobs:
 - **Install MkDocs Material:** Installs the MkDocs Material theme and other required Python packages.
 - **Deploy to GitHub Pages:** Builds and deploys your MkDocs site to GitHub Pages using a force push to overwrite existing content.
 
+To change the header color using **MkDocs Material** without custom CSS, you can leverage the built-in `palette` feature in the `mkdocs.yml` configuration file. This method allows you to set primary and accent colors for the entire site, including the header.
+
+### Steps to Change Header Color and Theme Using MkDocs Material
+
+* **Open Your `mkdocs.yml` Configuration File:**
+    - In your MkDocs project folder, locate and open the `mkdocs.yml` file.
+
+* **Set the Color Palette:**
+    - Under the `theme` section, add or modify the `palette` configuration to specify your desired primary and accent colors. For example:
+
+```yaml
+theme:
+  name: 'material'
+  palette:
+    scheme: default
+    primary: 'blue'
+    accent: 'amber'
+```
+
+
+   - **Primary Color**: Sets the main color theme for your header and other primary elements.
+   - **Accent Color**: Sets the accent color for links, buttons, and interactive elements.
+   - Replace `'blue'` and `'amber'` with the colors that best suit your style. MkDocs Material supports a variety of colors, such as `'red'`, `'green'`, `'purple'`, `'indigo'`, `'teal'`, etc.
+
+* **Available Color Schemes:**
+    - MkDocs Material offers several built-in color schemes you can choose from. Each scheme changes the background, text contrast, and tone for the entire site, including the header and sidebar. Here’s a breakdown of each scheme:
+   
+     - **`default`**: The standard light scheme, with a white background and dark text. It provides a clean and bright look, ideal for general readability.
+     - **`slate`**: A subtle, slightly darker scheme than `default`, featuring a muted background and softer contrast. This scheme is a great choice for a more subdued appearance while still remaining light.
+     - **`dark`**: A full dark mode theme with a dark background and light text, suitable for users who prefer a low-light setting. This scheme is especially useful for nighttime reading.
+     - **`black`**: The darkest scheme available, with a true black background and high-contrast light text. It’s designed to offer the most contrast and is perfect for OLED screens or users seeking maximum readability in dark mode.
+
+4. **Preview Your Changes:**
+      - Run the following command to preview the changes locally:
+
+      ```bash
+      mkdocs serve
+      ```
+
+      - This command starts a local development server where you can view the updated header color and palette changes.
+
+5. **Deploy Your Site:**
+    - Once you’re satisfied with the color scheme, deploy your MkDocs site to apply the changes to your live documentation.
+
 ## How to Add Weekly Assignments and Any Other Materials in General
 
 ### Adding Weekly Assignments
