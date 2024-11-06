@@ -6,6 +6,8 @@ nav:
   - Home: index.md
   - OS-Weekly:
       - assignments/index.md
+  - Template:
+      - template.md
 theme:
   name: material
   logo: assets/images/cbk.jpg
