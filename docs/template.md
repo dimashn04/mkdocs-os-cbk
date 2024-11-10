@@ -6,6 +6,27 @@ hide:
   - toc
 ---
 
+## Table of Contents
+
+1. [How to Prepare the Source Code](#how-to-prepare-the-source-code) 
+
+2. [How to Install Requirements for MkDocs](#how-to-install-requirements-for-mkdocs)
+
+3. [How to Run MkDocs in a Web Browser](#how-to-run-mkdocs-in-a-web-browser)  
+   3.1 [Common Options for `mkdocs serve`](#common-options-for-mkdocs-serve)  
+
+4. [How to Set Up GitHub Actions for Automated MkDocs Deployment](#how-to-set-up-github-actions-for-automated-mkdocs-deployment)  
+   4.1 [Preparing Your MkDocs Project for GitHub Actions](#preparing-your-mkdocs-project-for-github-actions)  
+   4.2 [Example CI Workflow Configuration](#example-ci-workflow-configuration)  
+   4.3 [Deployment Steps Explained](#deployment-steps-explained)  
+
+5. [How to Change Header Color and Theme Using MkDocs Material](#how-to-change-header-color-and-theme-using-mkdocs-material)
+
+6. [How to Add Weekly Assignments and Any Other Materials in General](#how-to-add-weekly-assignments-and-any-other-materials-in-general)  
+   6.1 [Adding Weekly Assignments](#adding-weekly-assignments)  
+   6.2 [Adding Other Materials](#adding-other-materials)  
+   6.3 [Linking One Page to Another](#linking-one-page-to-another)
+
 ## How to Prepare the Source Code
 
 1. **Download the Source Code:**  
@@ -19,75 +40,59 @@ hide:
 
 ## How to Install Requirements for MkDocs
 
-To set up MkDocs and `mkdocs-material` theme, run these commands:
+To set up MkDocs and the `mkdocs-material` theme, run the following commands in your CLI:
 
 ```bash
 pip install mkdocs
 pip install mkdocs-material
 ```
 
-## How to Run MkDocs in a Web Browser
-
-After installation, you can start the MkDocs development server to preview your documentation locally.
-
-The command `mkdocs serve` launches a built-in server for easy preview and development.
-
-```bash
-mkdocs serve [OPTIONS]
-```
-
-### Common Options for `mkdocs serve`
-
-| Option                          | Type                 | Description                                                                                      | Default            |
-|---------------------------------|----------------------|--------------------------------------------------------------------------------------------------|--------------------|
-| `-a`, `--dev-addr`              | text                | IP address and port to serve documentation locally (default: `localhost:8000`).                  | None               |
-| `--no-livereload`               | boolean             | Disable live reloading in the development server.                                                | False              |
-| `--dirty`                       | boolean             | Only rebuild files that have changed.                                                            | False              |
-| `-c`, `--clean`                 | boolean             | Build the site without effects of `mkdocs serve`; performs a pure build, then serves it.         | False              |
-| `--watch-theme`                 | boolean             | Watch the theme for live reloading. Ignored if live reload is off.                               | False              |
-| `-w`, `--watch`                 | path                | Additional directories or files to watch for live reloading (can be specified multiple times).   | `[]`               |
-| `-f`, `--config-file`           | filename            | Specify a custom MkDocs config file (filename or `-` to read from stdin).                        | None               |
-| `-s`, `--strict / --no-strict`  | boolean             | Enable strict mode, causing MkDocs to abort on warnings.                                         | None               |
-| `-t`, `--theme`                 | choice (mkdocs \| readthedocs) | Specify the theme for building documentation.                                               | None               |
-| `--use-directory-urls`          | boolean             | Use directory URLs when building pages (enabled by default).                                     | None               |
-| `-q`, `--quiet`                 | boolean             | Suppress warnings.                                                                              | False              |
-| `-v`, `--verbose`               | boolean             | Enable verbose output.                                                                           | False              |
-| `--help`                        | boolean             | Display help information for `mkdocs serve`.                                                     | False              |
-
----
+![Install Libraries](../assets/images/template/install_libraries.png)
 
 ## How to Set Up GitHub Actions for Automated MkDocs Deployment
 
 ### Preparing Your MkDocs Project for GitHub Actions
 
-To automate the deployment of your MkDocs project using GitHub Actions, you'll need to set up a specific directory structure and configuration files within your repository. Here's a step-by-step guide to get you started:
+<span style="color:red; font-weight:bold; font-size:larger;">SKIP STEP 2-4 BECAUSE IT IS ALREADY GIVEN IN THE SOURCE CODE</span>
 
-1. **Create your GitHub repository:**  
-   If you haven't already, create a new repository on GitHub to host your MkDocs project.
+1. **Create Your GitHub Repository**  
+   Start by creating a GitHub repository to host your MkDocs project if you haven’t already.  
+   [Create New Repository on GitHub](https://github.com/new)
 
 2. **Create the `.github` Directory:**
-   - Navigate to the root of your MkDocs project and create a new folder named `.github`. This directory will house the GitHub Actions workflows and other GitHub-specific configurations.
+    - Navigate to the root of your MkDocs project and create a new folder named `.github`. This directory will house the GitHub Actions workflows and other GitHub-specific configurations.
 
 3. **Add a `workflows` Directory:**
-   - Inside the `.github` folder, create another folder named `workflows`. This is where all workflow configuration files will be stored.
+    - Inside the `.github` folder, create another folder named `workflows`. This is where all workflow configuration files will be stored.
 
 4. **Create the CI Workflow File:**
-    * Within the `workflows` folder, create a file named `ci.yml`. This YAML file will define the Continuous Integration (CI) workflow that GitHub Actions will execute.
+    - Within the `workflows` folder, create a file named `ci.yml`. This YAML file will define the Continuous Integration (CI) workflow that GitHub Actions will execute.
 
 5. **Configure the CI Workflow:**
-    * Open the `ci.yml` file and add the necessary steps to install MkDocs, build the site, and deploy it to GitHub Pages. See Example CI Workflow Configuration below.
+    - Open the `ci.yml` file and add the necessary steps to install MkDocs, build the site, and deploy it to GitHub Pages. See Example CI Workflow Configuration below.
+   [Example CI Workflow Configuration](#example-ci-workflow-configuration)
 
-6. **Commit and Push Changes:**
-    * Once you've set up the CI workflow, commit the changes to your repository and push them to GitHub. This will trigger the CI workflow and deploy your MkDocs site.
+6. **Commit and Push Changes:**  
+    - Once your CI workflow is configured, commit your changes and push them to GitHub.
 
-7. **Monitor the Workflow:**
-    * After pushing the changes, navigate to the "Actions" tab on your GitHub repository to monitor the progress of the CI workflow. You should see the workflow running and deploying your MkDocs site.
+7. **Set Up GitHub Pages Deployment:**  
+    - Go to your repository’s settings, open the **Pages** section, and set the source to **Deploy from a branch**.  
+     <img src="../assets/images/template/deployment_source.jpg" alt="Deployment Source" width="800"/>
+    - Set the deployment branch to `gh-pages`.  
+     <img src="../assets/images/template/deployment_branch.jpg" alt="Deployment Branch" width="800"/>
+    - Save your changes.  
+     <img src="../assets/images/template/deployment_save.jpg" alt="Save Deployment Settings" width="800"/>
 
-8. **Access Your Deployed Site:**
-    * Once the workflow has completed successfully, you can access your deployed MkDocs site by visiting the GitHub Pages URL associated with your repository. To do this, open the "Settings" tab of your repository, scroll down to the "GitHub Pages" section, and find the URL under "Your site is published at."
+8. **Access Your Deployed Site:**  
+    - After the workflow completes successfully, refresh the GitHub Pages section and visit the GitHub Pages URL to access your MkDocs site.  
+   <img src="../assets/images/template/deployment_link.jpg" alt="Deployment Link" width="800"/>
 
-9. **Add Deployed Site Link to Repository Details:**
-    * To make it easier for visitors to access your deployed MkDocs site, consider adding the GitHub Pages URL to the repository details or the README file. To add the URL to the Repository Details, search for the "About" section on the right side of your repository page and click the gear icon to edit the details. You can then add the GitHub Pages URL under "Website."
+9. **Add the Deployed Site Link to Repository Details:**  
+    - To make it easy for visitors to find your site, add the GitHub Pages URL to the repository details or the README file.  
+     <img src="../assets/images/template/repository_about.jpg" alt="Repository About Section" width="800"/>
+    - In the "About" section, click the gear icon to add the URL under "Website" and save your changes.  
+     <img src="../assets/images/template/about_website.jpg" alt="About Website" width="800"/>
+    - Save your changes.
 
 ### Example CI Workflow Configuration
 
@@ -135,9 +140,37 @@ jobs:
 - **Install MkDocs Material:** Installs the MkDocs Material theme and other required Python packages.
 - **Deploy to GitHub Pages:** Builds and deploys your MkDocs site to GitHub Pages using a force push to overwrite existing content.
 
-To change the header color using **MkDocs Material** without custom CSS, you can leverage the built-in `palette` feature in the `mkdocs.yml` configuration file. This method allows you to set primary and accent colors for the entire site, including the header.
+## How to Run MkDocs in a Web Browser
 
-### Steps to Change Header Color and Theme Using MkDocs Material
+After installation, you can start the MkDocs development server to preview your documentation locally.
+
+The command `mkdocs serve` launches a built-in server for easy preview and development.
+
+```bash
+mkdocs serve [OPTIONS]
+```
+
+### Common Options for `mkdocs serve`
+
+| Option                          | Type                 | Description                                                                                      | Default            |
+|---------------------------------|----------------------|--------------------------------------------------------------------------------------------------|--------------------|
+| `-a`, `--dev-addr`              | text                | IP address and port to serve documentation locally (default: `localhost:8000`).                  | None               |
+| `--no-livereload`               | boolean             | Disable live reloading in the development server.                                                | False              |
+| `--dirty`                       | boolean             | Only rebuild files that have changed.                                                            | False              |
+| `-c`, `--clean`                 | boolean             | Build the site without effects of `mkdocs serve`; performs a pure build, then serves it.         | False              |
+| `--watch-theme`                 | boolean             | Watch the theme for live reloading. Ignored if live reload is off.                               | False              |
+| `-w`, `--watch`                 | path                | Additional directories or files to watch for live reloading (can be specified multiple times).   | `[]`               |
+| `-f`, `--config-file`           | filename            | Specify a custom MkDocs config file (filename or `-` to read from stdin).                        | None               |
+| `-s`, `--strict / --no-strict`  | boolean             | Enable strict mode, causing MkDocs to abort on warnings.                                         | None               |
+| `-t`, `--theme`                 | choice (mkdocs \| readthedocs) | Specify the theme for building documentation.                                               | None               |
+| `--use-directory-urls`          | boolean             | Use directory URLs when building pages (enabled by default).                                     | None               |
+| `-q`, `--quiet`                 | boolean             | Suppress warnings.                                                                              | False              |
+| `-v`, `--verbose`               | boolean             | Enable verbose output.                                                                           | False              |
+| `--help`                        | boolean             | Display help information for `mkdocs serve`.                                                     | False              |
+
+---
+
+### How to Change Header Color and Theme Using MkDocs Material
 
 * **Open Your `mkdocs.yml` Configuration File:**
     - In your MkDocs project folder, locate and open the `mkdocs.yml` file.
@@ -250,7 +283,7 @@ theme:
 To create links between pages, use the following markdown syntax:
 
 ```markdown
-  [Link Text](path/to/page.md)
+  [Link Text](path/to/pageNameWithoutDotmd)
 ```
 
 > **Note**: Do not include `docs` in the path, as it may prevent the link from working.
